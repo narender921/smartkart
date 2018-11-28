@@ -31,11 +31,11 @@ public class Product
 	{
 		this.productName = productName;
 	}
-	public String getProductPrice() 
+	public String getProductQuantity() 
 	{
 		return productQuantity;
 	}
-	public void setproductPrice(String productQuantity) {
+	public void setProductQuantity(String productQuantity) {
 		this.productQuantity = productQuantity;
 	}
 	

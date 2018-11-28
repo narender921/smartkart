@@ -10,15 +10,15 @@ public class User
 {
 	@Id
 	 
-	String userEmailId;
+	private String userEmailId;
 	String userPassword;
 	String userName;
 	String userContact;
 	String userAddress;
-	public String getUerEmailId() {
+	public String getUserEmailId() {
 		return userEmailId;
 	}
-	public void setUerEmailId(String uerEmailId) {
+	public void setUserEmailId(String uerEmailId) {
 		this.userEmailId = uerEmailId;
 	}
 	public String getUserPassword() {

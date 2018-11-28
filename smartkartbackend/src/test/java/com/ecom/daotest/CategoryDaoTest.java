@@ -8,6 +8,7 @@ import java.util.List;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.ecom.dao.CategoryDao;
@@ -17,7 +18,7 @@ import com.ecom.model.Category;
 
 public class CategoryDaoTest 
 {
-	
+	@Autowired
 	static CategoryDao categoryDao;
 
 	@BeforeClass
@@ -31,13 +32,13 @@ public class CategoryDaoTest
 		categoryDao=(CategoryDao)context.getBean("categoryDao");
 	}
 	
-	@Ignore
+	
 	@Test
 	public void addCategoryTest()
 	{
 		Category category=new Category();
-		category.setCategoryName("Curtain");
-		category.setCategoryDesc("Various Variety of Curtains");
+		category.setCategoryName("BedSheets");
+		category.setCategoryDesc("Various Variety of BedSheets");
 		
 		assertTrue("Problem in Adding the Category",categoryDao.add(category));
 	}
@@ -58,6 +59,7 @@ public class CategoryDaoTest
 		assertTrue("Problem in Updating the Category",categoryDao.delete(category));
 	}
 	
+	@Ignore
 	@Test
 	public void listCategoriesTest()
 	{

@@ -33,15 +33,14 @@ public class UserDaoTest
 	
 	@Ignore
 	@Test
-	public void addCategoryTest()
+	public void addUserTest()
 	{
 		User user=new User();
-		user.setUserEmailId("abc@email.com");
-		user.setUserPassword("******");
+		user.setContact("9999999999");
+		user.setUserEmailId("abc@gmail.com");
+		user.setUserAddress("Delhi");
 		user.setUserName("Abc");
-		user.setUserContact("9911223344");
-		user.setUserAddress("223,New Delhi-110066");
-		
+		user.setUserPassword("********");
 		
 		
 		
@@ -53,7 +52,7 @@ public class UserDaoTest
 	public void updateUserTest()
 	{	
 		User user=userDao.getUser(2);
-		user.setUserContact("");
+		user.setContact("");
 		user.setUserAddress("");	
 		assertTrue("Problem in Updating the User",userDao.update(user));
 	}
@@ -77,7 +76,7 @@ public class UserDaoTest
 			System.out.print("User EmailId:"+user.getUserEmailId());
 			System.out.print("User Password:"+user.getUserPassword());
 			System.out.print("User Name:"+user.getUserName());
-			System.out.print("User Contact:"+user.getUserContact());
+			System.out.print("User Contact:"+user.getContact());
 			System.out.println("User Address:"+user.getUserAddress());
 		}
 	}

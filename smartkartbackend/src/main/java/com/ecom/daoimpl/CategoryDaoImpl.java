@@ -26,14 +26,15 @@ public class CategoryDaoImpl implements CategoryDao{
 
 			
 		try {
-			Session session = sessionFactory.openSession();
+			Session session = sessionFactory.getCurrentSession();
 			session.save(category);
-			
+			System.out.println("addCategory");
 			
 			return true;
 		} catch (HibernateException e) {
 			
 			e.printStackTrace();
+			System.out.println("Catch");
 			return false;
 		}
 	}

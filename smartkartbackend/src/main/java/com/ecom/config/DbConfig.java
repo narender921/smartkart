@@ -14,6 +14,9 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.ecom.model.Category;
+import com.ecom.model.Product;
+import com.ecom.model.Supplier;
+import com.ecom.model.User;
 
 @Configuration
 @EnableTransactionManagement
@@ -29,8 +32,8 @@ public class DbConfig
 		
 		dataSource.setDriverClassName("org.h2.Driver");
 		dataSource.setUrl("jdbc:h2:tcp://localhost/~/smartkart");
-		dataSource.setUsername("dteja");
-		dataSource.setPassword("dteja");
+		dataSource.setUsername("sa");
+		dataSource.setPassword("");
 		System.out.println("---DataSource Object is Created----");
 		return dataSource;
 	}
@@ -46,7 +49,14 @@ public class DbConfig
 		
 		LocalSessionFactoryBuilder factory=new LocalSessionFactoryBuilder(getH2DataSource());
 		factory.addProperties(hibernateProp);
+		factory.addAnnotatedClass(Product.class);
+
 		factory.addAnnotatedClass(Category.class);
+
+		factory.addAnnotatedClass(User.class);
+
+		factory.addAnnotatedClass(Supplier.class);
+		
 		//factory.scanPackages("com.niit");
 		System.out.println("---SessionFactory Object  Created ----");
 		

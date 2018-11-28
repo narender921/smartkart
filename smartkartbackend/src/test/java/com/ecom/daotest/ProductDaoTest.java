@@ -8,6 +8,7 @@ import java.util.List;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import com.ecom.dao.ProductDao;
 import com.ecom.model.Product;
@@ -16,21 +17,20 @@ import com.ecom.model.Product;
 
 public class ProductDaoTest 
 {
-	
+	@Autowired
 	static ProductDao productDao;
 
 	@BeforeClass
 	public static void executeFirst()
 	{
-		AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();
-		
+		AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();		
 		context.scan("com.ecom");
 		context.refresh();
 		
 		productDao=(ProductDao)context.getBean("productDao");
 	}
 	
-	@Ignore
+	
 	@Test
 	public void addProductTest()
 	{
@@ -56,7 +56,7 @@ public class ProductDaoTest
 		Product product=productDao.getProduct(2);
 		assertTrue("Problem in Updating the Category",productDao.delete(product));
 	}
-	
+	@Ignore
 	@Test
 	public void listCategoriesTest()
 	{
@@ -68,7 +68,7 @@ public class ProductDaoTest
 		{
 			System.out.print("Product ID:"+product.getProductId());
 			System.out.print("Product Name:"+product.getProductName());
-			System.out.println("Product Price:"+product.getProductPrice());
+			System.out.println("Product Quantity:"+product.getProductQuantity());
 		}
 	}
 	
